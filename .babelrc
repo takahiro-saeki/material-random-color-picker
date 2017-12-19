@@ -1,0 +1,17 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    "lodash",
+    "external-helpers",
+    "transform-function-bind",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ]
+} 
