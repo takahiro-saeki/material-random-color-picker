@@ -11,7 +11,7 @@ first, you need below.
 $ yarn or npm i
 ```
 and then, you need to import `mrcp()`.
-```
+```javascript
 import mrcp from 'material-random-color-picker';
 
 mrcp() // it will be rendered color randamly like #FFFFFF;
@@ -27,7 +27,7 @@ mrcp(option)
   - `level`: default is `null` and type is number
   - `isObject`: default is false and type is boolean
 
-```
+```javascript
 mrcp({color: 'red', type: 'lighten'})
 // #ef9a9a
 
