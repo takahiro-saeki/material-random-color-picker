@@ -1,6 +1,6 @@
 {
   "name": "material-random-color-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "this is color picker for material design.",
   "main": "lib/index.js",
   "repository": "https://github.com/takahiro-saeki/material-random-color-picker.git",
