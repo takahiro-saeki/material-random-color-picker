@@ -2217,223 +2217,25 @@ function shuffle(collection) {
   return func(collection);
 }
 
-var coreJsData = root['__core-js_shared__'];
-
-var maskSrcKey = function () {
-  var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
-  return uid ? 'Symbol(src)_1.' + uid : '';
-}();
-
 /**
- * Checks if `func` has its source masked.
- *
- * @private
- * @param {Function} func The function to check.
- * @returns {boolean} Returns `true` if `func` is masked, else `false`.
- */
-function isMasked(func) {
-  return !!maskSrcKey && maskSrcKey in func;
-}
-
-/** Used for built-in method references. */
-var funcProto$1 = Function.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString$1 = funcProto$1.toString;
-
-/**
- * Converts `func` to its source code.
- *
- * @private
- * @param {Function} func The function to convert.
- * @returns {string} Returns the source code.
- */
-function toSource(func) {
-  if (func != null) {
-    try {
-      return funcToString$1.call(func);
-    } catch (e) {}
-    try {
-      return func + '';
-    } catch (e) {}
-  }
-  return '';
-}
-
-var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
-
-/** Used to detect host constructors (Safari). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/** Used for built-in method references. */
-var funcProto = Function.prototype;
-var objectProto$7 = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString = funcProto.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty$5 = objectProto$7.hasOwnProperty;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' + funcToString.call(hasOwnProperty$5).replace(reRegExpChar, '\\$&').replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$');
-
-/**
- * The base implementation of `_.isNative` without bad shim checks.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function,
- *  else `false`.
- */
-function baseIsNative(value) {
-  if (!isObject(value) || isMasked(value)) {
-    return false;
-  }
-  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
-  return pattern.test(toSource(value));
-}
-
-/**
- * Gets the value at `key` of `object`.
- *
- * @private
- * @param {Object} [object] The object to query.
- * @param {string} key The key of the property to get.
- * @returns {*} Returns the property value.
- */
-function getValue(object, key) {
-  return object == null ? undefined : object[key];
-}
-
-function getNative(object, key) {
-  var value = getValue(object, key);
-  return baseIsNative(value) ? value : undefined;
-}
-
-var DataView = getNative(root, 'DataView');
-
-var Map = getNative(root, 'Map');
-
-var Promise$1 = getNative(root, 'Promise');
-
-var Set = getNative(root, 'Set');
-
-var WeakMap = getNative(root, 'WeakMap');
-
-var mapTag$2 = '[object Map]';
-var objectTag$1 = '[object Object]';
-var promiseTag = '[object Promise]';
-var setTag$2 = '[object Set]';
-var weakMapTag$1 = '[object WeakMap]';
-
-var dataViewTag$1 = '[object DataView]';
-
-/** Used to detect maps, sets, and weakmaps. */
-var dataViewCtorString = toSource(DataView);
-var mapCtorString = toSource(Map);
-var promiseCtorString = toSource(Promise$1);
-var setCtorString = toSource(Set);
-var weakMapCtorString = toSource(WeakMap);
-
-/**
- * Gets the `toStringTag` of `value`.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the `toStringTag`.
- */
-var getTag = baseGetTag;
-
-// Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
-if (DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag$1 || Map && getTag(new Map()) != mapTag$2 || Promise$1 && getTag(Promise$1.resolve()) != promiseTag || Set && getTag(new Set()) != setTag$2 || WeakMap && getTag(new WeakMap()) != weakMapTag$1) {
-    getTag = function getTag(value) {
-        var result = baseGetTag(value),
-            Ctor = result == objectTag$1 ? value.constructor : undefined,
-            ctorString = Ctor ? toSource(Ctor) : '';
-
-        if (ctorString) {
-            switch (ctorString) {
-                case dataViewCtorString:
-                    return dataViewTag$1;
-                case mapCtorString:
-                    return mapTag$2;
-                case promiseCtorString:
-                    return promiseTag;
-                case setCtorString:
-                    return setTag$2;
-                case weakMapCtorString:
-                    return weakMapTag$1;
-            }
-        }
-        return result;
-    };
-}
-
-var getTag$1 = getTag;
-
-var mapTag$1 = '[object Map]';
-var setTag$1 = '[object Set]';
-
-/** Used for built-in method references. */
-var objectProto$6 = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty$4 = objectProto$6.hasOwnProperty;
-
-/**
- * Checks if `value` is an empty object, collection, map, or set.
- *
- * Objects are considered empty if they have no own enumerable string keyed
- * properties.
- *
- * Array-like values such as `arguments` objects, arrays, buffers, strings, or
- * jQuery-like collections are considered empty if they have a `length` of `0`.
- * Similarly, maps and sets are considered empty if they have a `size` of `0`.
+ * Checks if `value` is `null`.
  *
  * @static
  * @memberOf _
  * @since 0.1.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is empty, else `false`.
+ * @returns {boolean} Returns `true` if `value` is `null`, else `false`.
  * @example
  *
- * _.isEmpty(null);
+ * _.isNull(null);
  * // => true
  *
- * _.isEmpty(true);
- * // => true
- *
- * _.isEmpty(1);
- * // => true
- *
- * _.isEmpty([1, 2, 3]);
- * // => false
- *
- * _.isEmpty({ 'a': 1 });
+ * _.isNull(void 0);
  * // => false
  */
-function isEmpty(value) {
-  if (value == null) {
-    return true;
-  }
-  if (isArrayLike(value) && (isArray(value) || typeof value == 'string' || typeof value.splice == 'function' || isBuffer(value) || isTypedArray(value) || isArguments(value))) {
-    return !value.length;
-  }
-  var tag = getTag$1(value);
-  if (tag == mapTag$1 || tag == setTag$1) {
-    return !value.size;
-  }
-  if (isPrototype(value)) {
-    return !baseKeys(value).length;
-  }
-  for (var key in value) {
-    if (hasOwnProperty$4.call(value, key)) {
-      return false;
-    }
-  }
-  return true;
+function isNull(value) {
+  return value === null;
 }
 
 var mrcp$1 = function mrcp() {
@@ -2443,7 +2245,7 @@ var mrcp$1 = function mrcp() {
       level = option.level,
       isObject = option.isObject;
 
-  if (isEmpty(color) && isEmpty(type) && isEmpty(level)) {
+  if (isNull(color) && isNull(type) && isNull(level)) {
     var _render = shuffle(colors);
     if (isObject) {
       return _render[0];
@@ -2478,4 +2280,4 @@ var mrcp$1 = function mrcp() {
   return render[0].code;
 };
 
-console.log(mrcp$1({ isObject: true, type: 'darken' }));
+console.log(mrcp$1({ isObject: true, level: 3 }));
