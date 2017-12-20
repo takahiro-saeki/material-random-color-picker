@@ -1,7 +1,7 @@
 {
   "name": "material-random-color-picker",
   "description": "this is color picker for material design.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "takahiro-saeki",
   "dependencies": {
     "lodash": "^4.17.4"
