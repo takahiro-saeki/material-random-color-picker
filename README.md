@@ -43,3 +43,6 @@ mrcp({isObject: true, level: 1})
 // { code: "#84ffff", color: "cyan", id: 109, level:1, type: "accent" }
 // just in case, id is a internal id. you don't need to care of it.
 ```
+
+### LICENSE
+[MIT](https://github.com/takahiro-saeki/material-random-color-picker/blob/master/LICENSE)
