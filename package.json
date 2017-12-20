@@ -2,13 +2,15 @@
   "name": "material-random-color-picker",
   "version": "0.0.1",
   "description": "this is color picker for material design.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/takahiro-saeki/material-random-color-picker.git",
   "author": "takahiro-saeki",
   "license": "MIT",
   "scripts": {
-    "start": "ROLLUP_ENV=development rollup -c -w",
-    "build": "ROLLUP_ENV=production rollup -c"
+    "start": "rollup --config rollup.config.dev.js -w",
+    "build": "rollup --config rollup.config.prod.js",
+    "clean": "rimraf 'lib/*.js'",
+    "filesize": "node node/dev.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -20,14 +22,11 @@
     "babel-plugin-transform-function-bind": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-es2017": "^6.24.1",
     "babelrc-rollup": "^3.0.0",
-    "cross-env": "^5.1.1",
-    "js-beautify": "^1.7.5",
-    "prettier": "^1.9.2",
+    "filesize": "^3.5.11",
     "rollup": "^0.52.2",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.6",
@@ -36,7 +35,6 @@
     "rollup-plugin-uglify": "^2.0.1"
   },
   "dependencies": {
-    "cheerio-httpcli": "^0.7.2",
     "lodash-es": "^4.17.4"
   }
 }
