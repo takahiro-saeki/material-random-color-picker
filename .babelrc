@@ -1,11 +1,19 @@
 {
   "presets": [
-    [
-      "env",
-      {
-        "modules": false
-      }
-    ]
+    ["env", { "modules": false }]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["env"]
+      ],
+      "plugins": [
+        "transform-runtime"
+      ]
+    }
+  },
+  "ignore": [
+    "node_modules/**"
   ],
   "plugins": [
     "lodash",
