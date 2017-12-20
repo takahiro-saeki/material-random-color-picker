@@ -1,6 +1,9 @@
 # material-random-color-picker
 [![Build Status](https://travis-ci.org/takahiro-saeki/material-random-color-picker.svg?branch=master)](https://travis-ci.org/takahiro-saeki/material-random-color-picker)
-[![Dependency Status](https://gemnasium.com/badges/github.com/takahiro-saeki/material-random-color-picker.svg)](https://gemnasium.com/github.com/takahiro-saeki/material-random-color-picker)  
+[![Dependency Status](https://gemnasium.com/badges/github.com/takahiro-saeki/material-random-color-picker.svg)](https://gemnasium.com/github.com/takahiro-saeki/material-random-color-picker)
+[![Maintainability](https://api.codeclimate.com/v1/badges/41bcc12073cd3557e55f/maintainability)](https://codeclimate.com/github/takahiro-saeki/material-random-color-picker/maintainability)
+[![Inline docs](http://inch-ci.org/github/takahiro-saeki/material-random-color-picker.svg?branch=master)](http://inch-ci.org/github/takahiro-saeki/material-random-color-picker)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)  
 this is for material design's color library.  
 
 ## motivation
