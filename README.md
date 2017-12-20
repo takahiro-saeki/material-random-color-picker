@@ -1,4 +1,5 @@
 # material-random-color-picker
+[![Build Status](https://travis-ci.org/takahiro-saeki/material-random-color-picker.svg?branch=master)](https://travis-ci.org/takahiro-saeki/material-random-color-picker)
 this is for material design's color library.  
 
 ## motivation
