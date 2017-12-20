@@ -8,7 +8,9 @@ if it can be used like uuid, that would be nice, so I made it!
 ## USAGE
 first, you need below.
 ```
-$ yarn or npm i
+$ yarn add material-random-color-picker 
+or 
+$ npm i material-random-color-picker
 ```
 and then, you need to import `mrcp()`.
 ```javascript
