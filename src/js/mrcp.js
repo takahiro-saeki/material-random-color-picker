@@ -1,6 +1,6 @@
 import colors from './color.js';
 import shuffle from 'lodash-es/shuffle'
-import isNull from 'lodash-es/isEmpty'
+import isNull from 'lodash-es/isNull'
 
 const mrcp = (option = { color: null, type: null, level: null, isObject: false }) => {
   const {color, type, level, isObject} = option;
@@ -20,7 +20,7 @@ const mrcp = (option = { color: null, type: null, level: null, isObject: false }
   if(type) {
     box = box.filter(item => item.type === type)
   }
-
+  
   if(level) {
     box = box.filter(item => item.level === level)
   }
