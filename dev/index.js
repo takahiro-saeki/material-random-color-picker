@@ -39,7 +39,7 @@ document.body.innerHTML = `
     }
   </style>
   <section>
-    <header>title</header>
+    <header>material-random-color-picker</header>
     <main>
       <aside>sidebar</aside>
       <div>main</div>
