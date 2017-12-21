@@ -3,9 +3,7 @@
   "description": "this is color picker for material design.",
   "version": "0.0.3",
   "author": "takahiro-saeki",
-  "dependencies": {
-    "lodash": "^4.17.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
