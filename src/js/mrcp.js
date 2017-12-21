@@ -1,6 +1,7 @@
-import { shuffle } from 'lodash';
-import { isNull } from 'lodash';
 import colors from './color';
+import { random, isNumber, isString } from './utils';
+import colorList from './colorList';
+import colorType from './colorType';
 
 const mrcp = (option = {
   color: null,
@@ -11,33 +12,33 @@ const mrcp = (option = {
   const {
     color, type, level, isObject,
   } = option;
-  if (isNull(color) && isNull(type) && isNull(level)) {
-    const render = shuffle(colors);
+  if (!isString(color) && !isString(type) && !isNumber(level)) {
+    const render = random(colors);
     if (isObject) {
-      return render[0];
+      return render;
     }
-    return render[0].code;
+    return render.code;
   }
 
   let box = colors;
-  if (color) {
+  if (color && isString(color) && colorList.includes(color)) {
     box = box.filter(item => item.color === color);
   }
 
-  if (type) {
+  if (type && isString(type) && colorType.includes(type)) {
     box = box.filter(item => item.type === type);
   }
 
-  if (level) {
+  if (level && isNumber(level) && level < 6) {
     box = box.filter(item => item.level === level);
   }
 
-  const render = shuffle(box);
+  const render = random(box);
 
   if (isObject) {
-    return render[0];
+    return render;
   }
-  return render[0].code;
+  return render.code;
 };
 
 export default mrcp;
