@@ -11,6 +11,10 @@ this is for material design's color library.
 sometimes, I need a color when I make mock design or framework in markup. it's slightly troublesome to choose color and check design. additionally, I'm usually using React.js or lit-html or something which generates HTML from javascript.  
 if it can be used like uuid, that would be nice, so I made it!
 
+## Example
+Example page is [here](https://takahiro-saeki.github.io/material-random-color-picker/dist/index.html)  
+and Example code is [here](https://github.com/takahiro-saeki/material-random-color-picker/tree/master/dev)  
+
 ## USAGE
 first, you need below.
 ```
@@ -26,6 +30,9 @@ mrcp() // it will be rendered color randamly like #FFFFFF;
 ```
 
 ### API  
+Basically, I refered to material design's color. Especially [this page](http://materializecss.com/color.html)  
+if you got confused how to set option such as `color` , `type` , and `level` , please refer above page.  
+
 ```
 mrcp(option)
 ```
