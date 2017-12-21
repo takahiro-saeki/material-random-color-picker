@@ -33,7 +33,7 @@ mrcp() // it will be rendered color randamly like #FFFFFF;
 Basically, I refered to material design's color. Especially [this page](http://materializecss.com/color.html)  
 if you got confused how to set option such as `color` , `type` , and `level` , please refer above page.  
 
-```
+```javascript
 mrcp(option)
 ```
 - `option`: type is object
