@@ -1,7 +1,7 @@
 {
   "name": "material-random-color-picker",
   "description": "this is color picker for material design.",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "author": "takahiro-saeki",
   "dependencies": {},
   "devDependencies": {
